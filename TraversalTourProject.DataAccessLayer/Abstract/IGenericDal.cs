@@ -12,6 +12,6 @@ namespace TraversalTourProject.DataAccessLayer.Abstract
         void Update(T entity);
         void Delete(T entity);
         List<T> GetListAll();
-        T TGetByID(int id);
+        T GetByID(int id);
     }
 }

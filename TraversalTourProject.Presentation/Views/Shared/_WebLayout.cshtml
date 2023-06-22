@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "_WebLayout";
+}
+
+<!doctype html>
+<html lang="zxx">
+
+@*Header Script*@
+@await Html.PartialAsync("~/Views/Shared/_LayoutPartial/_HeaderScript.cshtml")
+
+<body>
+    @*Header*@
+    @await Html.PartialAsync("~/Views/Shared/_LayoutPartial/_HeaderPartial.cshtml")
+
+    @*Content*@
+    @RenderBody()
+
+    @*Footer*@
+    @await Html.PartialAsync("~/Views/Shared/_LayoutPartial/_FooterPartial.cshtml")
+
+    @*Footer Script*@
+    @await Html.PartialAsync("~/Views/Shared/_LayoutPartial/_FooterScript.cshtml")
+</body>
+
+</html>
+
