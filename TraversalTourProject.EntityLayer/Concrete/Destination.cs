@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TraversalTourProject.EntityLayer.Concrete
 {
     public class Destination
     {
         [Key]
-        public int DestionationID { get; set; }
+        public int DestinationID { get; set; }
         public string City { get; set; }
         public string DayNight { get; set; }
         public double Price { get; set; }
@@ -13,6 +14,8 @@ namespace TraversalTourProject.EntityLayer.Concrete
         public string Description { get; set; }
         public int Capacity { get; set; }
         public bool IsActive { get; set; }
+
+        public List<Comment> Comments { get; set; }
 
     }
 }

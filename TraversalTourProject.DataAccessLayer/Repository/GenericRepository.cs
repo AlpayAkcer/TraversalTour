@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using TraversalTourProject.DataAccessLayer.Abstract;
 using TraversalTourProject.DataAccessLayer.Concrete;
 
@@ -38,6 +40,12 @@ namespace TraversalTourProject.DataAccessLayer.Repository
             using Context _context = new Context();
             _context.Update(entity);
             _context.SaveChanges();
+        }
+
+        public List<T> GetByListFilter(Expression<Func<T, bool>> filter)
+        {
+            using Context _context = new Context();
+            return _context.Set<T>().Where(filter).ToList();
         }
     }
 }

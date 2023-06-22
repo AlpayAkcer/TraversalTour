@@ -1,0 +1,102 @@
+﻿@model UserRegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Traversal Yeni Misafir Kayıt Sayfası</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="/Login/css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+</head>
+
+<body>
+    <!-- /login-section -->
+    <section class="w3l-login-6">
+        <div class="login-hny">
+            <div class="form-content">
+                <div class="form-right">
+                    <div class="overlay">
+                        <div class="grid-info-form">
+                            <h5>Hoşgeldiniz</h5>
+                            <h3>Yeni Misafir Kayıt Sayfası</h3>
+                            <p>
+                                Rezervasyon yapabileceğiniz ve rezervasyonlarınızı takip edebileceğiniz, müşteriye özel paneli ile siz değerli müşterilerimizi sistemimize kayıt olmaya bekliyoruz. Bir çok veriden hızlı bir şekilde bilgi alabilir, rezervasyon yapabilir, güncel rotaların takibini de izleyebilirsiniz.
+                            </p>
+                            <a href="/Login/SignIn" class="read-more-1 btn">İyi Eğlenceler Dileriz.</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-left">
+                    <div class="middle">
+                        <h4>Kayıt Paneli</h4>
+                        <p>Ücretsiz ve Hızlı  Profil oluşturun.</p>
+                    </div>
+                    <form action="#" method="post" class="signin-form">
+                        <div class="form-input">
+                            <input type="text" class="form-control" placeholder="Adınız" asp-for="Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-input">
+                            <input type="text" class="form-control" placeholder="Soyadınız" asp-for="Surname">
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </div>
+                        <div class="form-input">
+                            <input type="text" class="form-control" placeholder="Kullanıcı Adınız" asp-for="UserName">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-input">
+                            <input type="email" class="form-control" placeholder="Mail Adresiniz" asp-for="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-input">
+                            <input type="password" class="form-control" placeholder="Şifreniz" asp-for="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-input">
+                            <input type="password" class="form-control" placeholder="Şifre Doğrulama" asp-for="ConfirmPassword">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <label class="container">
+                            Şartları Okudum <a href="/Login/SignIn">Kabul Ediyorum</a>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="btn">Kayıt Oluştur</button>
+                    </form>
+                    <div class="copy-right text-center">
+                        <p>
+                            Copyright © @DateTime.Now.Year Tüm hakları saklıdır. <br />
+                            Powered By <a href="mailto:info@alpayakcer.com" target="_blank">Alpay A.</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- //login-section -->
+</body>
+</html>

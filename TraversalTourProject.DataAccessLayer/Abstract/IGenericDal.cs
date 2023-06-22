@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace TraversalTourProject.DataAccessLayer.Abstract
 {
@@ -13,5 +11,8 @@ namespace TraversalTourProject.DataAccessLayer.Abstract
         void Delete(T entity);
         List<T> GetListAll();
         T GetByID(int id);
+
+        //Şarta göre filtreleme yapıp veri getirme.
+        List<T> GetByListFilter(Expression<Func<T, bool>> filter);
     }
 }

@@ -9,5 +9,6 @@ namespace TraversalTourProject.BusinessLayer.Abstract
         void TUpdate(T entity);
         List<T> TGetListAll();
         T TGetByID(int id);
+
     }
 }
