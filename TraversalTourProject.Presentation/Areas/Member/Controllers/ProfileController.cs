@@ -29,6 +29,8 @@ namespace TraversalTourProject.Presentation.Areas.Member.Controllers
             userEditViewModel.Surname = value.Surname;
             userEditViewModel.PhoneNumber = value.PhoneNumber;
             userEditViewModel.Gender = value.Gender;
+            userEditViewModel.Description = value.Description;
+            userEditViewModel.City = value.City;
             userEditViewModel.Email = value.Email;
             userEditViewModel.ImageUrl = value.ImageUrl;
             return View(userEditViewModel);
@@ -42,7 +44,9 @@ namespace TraversalTourProject.Presentation.Areas.Member.Controllers
             userEditViewModel.Name = value.Name;
             userEditViewModel.Surname = value.Surname;
             userEditViewModel.PhoneNumber = value.PhoneNumber;
+            userEditViewModel.Description = value.Description;
             userEditViewModel.Gender = value.Gender;
+            userEditViewModel.City = value.City;
             userEditViewModel.Email = value.Email;
 
             return View(userEditViewModel);
@@ -66,7 +70,9 @@ namespace TraversalTourProject.Presentation.Areas.Member.Controllers
             value.Surname = model.Surname;
             value.PhoneNumber = model.PhoneNumber;
             value.Gender = model.Gender;
+            value.Description = model.Description;
             value.Email = model.Email;
+            value.City = model.City;
             value.PasswordHash = _userManager.PasswordHasher.HashPassword(value, model.Password);
             var result = await _userManager.UpdateAsync(value);
             if (result.Succeeded)

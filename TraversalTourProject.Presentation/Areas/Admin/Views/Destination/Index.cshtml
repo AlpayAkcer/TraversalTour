@@ -1,0 +1,105 @@
+﻿@using TraversalTourProject.EntityLayer.Concrete;
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Turlarımız</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Admin/Dashboard/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Sayfa Adı</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th width="30px">#</th>
+                                <th width="50px">Şehir</th>
+                                <th>Kişi Sayısı</th>
+                                <th>Fiyat</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int satirsayisi = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @{
+                                            satirsayisi++;
+                                            @satirsayisi
+                                        }
+                                    </td>
+                                    <td>
+                                        @item.City
+                                    </td>
+                                    <td class="project_progress">
+                                        @if (item.Capacity < 50)
+                                        {
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-green" role="progressbar" aria-volumenow="@item.Capacity" aria-volumemin="0" aria-volumemax="100" style="width: @item.Capacity%">
+                                                </div>
+                                            </div>
+                                        }
+                                        else if (item.Capacity <= 70)
+                                        {
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-primary" role="progressbar" aria-volumenow="@item.Capacity" aria-volumemin="0" aria-volumemax="100" style="width: @item.Capacity%">
+                                                </div>
+                                            </div>
+                                        }
+                                        else if (item.Capacity == 100)
+                                        {
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-danger" role="progressbar" aria-volumenow="@item.Capacity" aria-volumemin="0" aria-volumemax="100" style="width: @item.Capacity%">
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-volumenow="@item.Capacity" aria-volumemin="0" aria-volumemax="100" style="width: @item.Capacity%">
+                                                </div>
+                                            </div>
+                                        }
+                                        <small>
+                                            <span class="badge badge-dark"> @item.Capacity </span> (Kontenjan Sayısı)
+                                        </small>
+                                    </td>
+                                    <td>@item.Price.ToString("C2")</td>
+                                    <td width="230px">
+                                        <a href="/Admin/Destination/ViewSite/@item.DestinationID" class="btn btn-primary"><i class="fas fa-bullhorn"></i></a>
+                                        <a href="/Admin/Destination/AddDestination" class="btn btn-warning">Yeni Ekle</a>
+                                        <a href="/Admin/Destination/DeleteDestination/@item.DestinationID" class="btn btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        <a href="/Admin/Destination/UpdateDestination/@item.DestinationID" class="btn btn-dark"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

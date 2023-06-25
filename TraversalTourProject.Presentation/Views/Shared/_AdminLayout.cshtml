@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+@await Html.PartialAsync("~/Views/Shared/_AdminLayoutPartial/_AdminHeadPartial.cshtml")
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        @await Html.PartialAsync("~/Views/Shared/_AdminLayoutPartial/_AdminNavbarPartial.cshtml")
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        @await Html.PartialAsync("~/Views/Shared/_AdminLayoutPartial/_SidebarPartial.cshtml")
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @RenderBody()
+
+            <!-- /.content -->
+        </div>
+
+        <!-- /.content-wrapper -->
+        @await Html.PartialAsync("~/Views/Shared/_AdminLayoutPartial/_AdminFooterPartial.cshtml")
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    @await Html.PartialAsync("~/Views/Shared/_AdminLayoutPartial/_AdminScriptPartial.cshtml")
+</body>
+</html>
+

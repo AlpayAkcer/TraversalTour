@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Admin\.github\ISSUE_TEMPLATE\bug-report-for-adminlte-v2-4-x.md" />
+    <None Include="wwwroot\Admin\.github\ISSUE_TEMPLATE\bug-report-for-adminlte-v3-x.md" />
+    <None Include="wwwroot\Admin\.github\ISSUE_TEMPLATE\feature-request-for-adminlte-v3-x.md" />
     <None Include="wwwroot\Website\assets\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\Website\assets\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\Website\assets\js\all.js" />
@@ -49,8 +52,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Member\Data\" />
-    <Folder Include="wwwroot\Upload\" />
+    <Folder Include="wwwroot\Upload\Destination\" />
+    <Folder Include="wwwroot\Upload\Blog\" />
+    <Folder Include="wwwroot\Upload\Member\" />
   </ItemGroup>
 
 </Project>
