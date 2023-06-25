@@ -48,4 +48,9 @@
     <ProjectReference Include="..\TraversalTourProject.EntityLayer\TraversalTourProject.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Member\Data\" />
+    <Folder Include="wwwroot\Upload\" />
+  </ItemGroup>
+
 </Project>

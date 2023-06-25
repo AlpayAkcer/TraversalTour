@@ -1,0 +1,98 @@
+﻿@using TraversalTourProject.EntityLayer.Concrete;
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Aktif Turlarımız</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@DateTime.Now.Year Tur Listesi</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mevcut Kapasite</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Güncel Fiyat</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Detaylar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div>
+                                                <img src="@item.Image" class="avatar avatar-sm me-3" alt="user1">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">@item.City</h6>
+                                                <p class="text-xs text-secondary mb-0">@item.DayNight</p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 ml-25 text-sm">
+                                                    <a href="#"><i class="fa fa-user"></i>Tur Detayı</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <span class="me-2 text-xs font-weight-bold">@item.Capacity%</span>
+                                            <div>
+                                                @if (item.Capacity < 50)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="@item.Capacity" aria-valuemin="0" aria-valuemax="100" style="width: @item.Capacity%;"></div>
+                                                    </div>
+                                                }
+                                                else if (item.Capacity <= 70)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="@item.Capacity" aria-valuemin="0" aria-valuemax="100" style="width: @item.Capacity%;"></div>
+                                                    </div>
+                                                }
+                                                else if (item.Capacity > 80)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="@item.Capacity" aria-valuemin="0" aria-valuemax="100" style="width: @item.Capacity%;"></div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="@item.Capacity" aria-valuemin="0" aria-valuemax="100" style="width: @item.Capacity%;"></div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">@item.Price.ToString("C2")</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        @if (item.Capacity == 100)
+                                        {
+                                            <span class="text-danger text-xs font-weight-bold">Dolu</span>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-success">Rezervasyon Yap</button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

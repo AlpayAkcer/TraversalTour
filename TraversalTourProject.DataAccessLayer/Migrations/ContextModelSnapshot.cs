@@ -443,6 +443,45 @@ namespace TraversalTourProject.DataAccessLayer.Migrations
                     b.ToTable("Newsletters");
                 });
 
+            modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.Reservation", b =>
+                {
+                    b.Property<int>("ReservationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AppUserID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DestinationID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PersonCount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReservationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("StatusID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReservationID");
+
+                    b.HasIndex("AppUserID");
+
+                    b.HasIndex("DestinationID");
+
+                    b.HasIndex("StatusID");
+
+                    b.ToTable("Reservations");
+                });
+
             modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.Social", b =>
                 {
                     b.Property<int>("SocialID")
@@ -465,6 +504,24 @@ namespace TraversalTourProject.DataAccessLayer.Migrations
                     b.HasKey("SocialID");
 
                     b.ToTable("Socials");
+                });
+
+            modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.Status", b =>
+                {
+                    b.Property<int>("StatusID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsAtive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StatusID");
+
+                    b.ToTable("Statuses");
                 });
 
             modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.SubAbout", b =>
@@ -577,9 +634,48 @@ namespace TraversalTourProject.DataAccessLayer.Migrations
                     b.Navigation("Destination");
                 });
 
+            modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.Reservation", b =>
+                {
+                    b.HasOne("TraversalTourProject.EntityLayer.Concrete.AppUser", "AppUser")
+                        .WithMany("Reservations")
+                        .HasForeignKey("AppUserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TraversalTourProject.EntityLayer.Concrete.Destination", "Destination")
+                        .WithMany("Reservations")
+                        .HasForeignKey("DestinationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TraversalTourProject.EntityLayer.Concrete.Status", "Status")
+                        .WithMany("Reservations")
+                        .HasForeignKey("StatusID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Destination");
+
+                    b.Navigation("Status");
+                });
+
+            modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.Navigation("Reservations");
+                });
+
             modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.Destination", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("TraversalTourProject.EntityLayer.Concrete.Status", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

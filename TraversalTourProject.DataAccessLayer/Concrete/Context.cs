@@ -18,6 +18,7 @@ namespace TraversalTourProject.DataAccessLayer.Concrete
 
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Status> Statuses { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Featured> Featureds { get; set; }
@@ -27,5 +28,7 @@ namespace TraversalTourProject.DataAccessLayer.Concrete
         public DbSet<Social> Socials { get; set; }
         public DbSet<SubAbout> SubAbouts { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+
     }
 }

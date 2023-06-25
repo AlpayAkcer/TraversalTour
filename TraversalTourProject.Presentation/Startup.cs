@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TraversalTourProject.DataAccessLayer.Concrete;
 using TraversalTourProject.EntityLayer.Concrete;
+using TraversalTourProject.Presentation.Models;
 
 namespace TraversalTourProject.Presentation
 {
@@ -29,7 +30,14 @@ namespace TraversalTourProject.Presentation
         {
             //HEm Identity hem de proje seviyesinde autontication uygulamak..
             services.AddDbContext<Context>();
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+
+            //CustomIdentityValidator oluþturduktan sonra ekleme yapýyoruz. Bu kýsma ekleme yapýlacak.
+            //AddErrorDescriber<Modelimizin adý olacak> ve Entityfreameworkstores tekrar eklenecek.
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<Context>()
+                .AddErrorDescriber<CustomIdentityValidator>()
+                .AddEntityFrameworkStores<Context>();
+
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -73,6 +81,14 @@ namespace TraversalTourProject.Presentation
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }

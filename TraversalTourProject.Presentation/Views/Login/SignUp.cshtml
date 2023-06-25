@@ -77,7 +77,7 @@
                             <input type="password" class="form-control" placeholder="Şifre Doğrulama" asp-for="ConfirmPassword">
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
-
+                        <div style="color: red;" asp-validation-summary="ModelOnly"></div>
                         <label class="container">
                             Şartları Okudum <a href="/Login/SignIn">Kabul Ediyorum</a>
                             <input type="checkbox">
