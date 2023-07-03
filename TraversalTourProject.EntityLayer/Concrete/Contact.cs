@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TraversalTourProject.EntityLayer.Concrete
 {
@@ -11,6 +12,7 @@ namespace TraversalTourProject.EntityLayer.Concrete
         public string Address { get; set; }
         public string Phone { get; set; }
         public string MapLocation { get; set; }
+        public DateTime CreateDate { get; set; }
         public bool IsActive { get; set; }
     }
 }

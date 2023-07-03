@@ -1,0 +1,28 @@
+﻿@using TraversalTourProject.DtoLayer.DTOs.MailDTO
+@model MailRequestDto
+@{
+    ViewData["Title"] = "SendMail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="inputName">Alıcı Mail Adres</label>
+            @Html.TextBoxFor(x => x.RecieverMail, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="inputDescription">Konu</label>
+            @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="inputDescription">Mesaj</label>
+            @Html.TextBoxFor(x => x.Body, new { @class = "form-control" })
+        </div>
+        <div class="col-12">
+            <input type="submit" value="Mail Gönder" class="btn btn-success float-right">
+        </div>
+    </div>
+</form>
+

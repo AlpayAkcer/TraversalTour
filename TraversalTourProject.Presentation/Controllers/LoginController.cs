@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using TraversalTourProject.DtoLayer.DTOs.AppUserDTO;
 using TraversalTourProject.EntityLayer.Concrete;
 using TraversalTourProject.Presentation.Models;
 
@@ -26,7 +27,7 @@ namespace TraversalTourProject.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp(UserRegisterViewModel p)
+        public async Task<IActionResult> SignUp(AppUserRegisterDto p)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +66,7 @@ namespace TraversalTourProject.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignIn(UserSignInViewModel model)
+        public async Task<IActionResult> SignIn(AppUserLogInDto model)
         {
             if (ModelState.IsValid)
             {

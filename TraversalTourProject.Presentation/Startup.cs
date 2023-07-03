@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using TraversalTourProject.BusinessLayer.Abstract;
 using TraversalTourProject.BusinessLayer.Concrete;
 using TraversalTourProject.BusinessLayer.Container;
+using TraversalTourProject.BusinessLayer.ValidationRules;
 using TraversalTourProject.DataAccessLayer.Abstract;
 using TraversalTourProject.DataAccessLayer.Concrete;
 using TraversalTourProject.DataAccessLayer.EntityFramework;

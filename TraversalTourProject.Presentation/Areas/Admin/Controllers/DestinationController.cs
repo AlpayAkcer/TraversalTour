@@ -8,6 +8,7 @@ using TraversalTourProject.EntityLayer.Concrete;
 namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/Destination")]
     public class DestinationController : Controller
     {
         private readonly IDestinationService _destinationService;
@@ -17,6 +18,7 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
             _destinationService = destinationService;
         }
 
+        [Route("Index")]
         public IActionResult Index()
         {
             var value = _destinationService.TGetListAll();
@@ -24,11 +26,13 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Route("AddDestination")]
         public IActionResult AddDestination()
         {
             return View();
         }
 
+        [Route("AddDestination")]
         [HttpPost]
         public IActionResult AddDestination(Destination destination)
         {
@@ -38,6 +42,7 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
         }
 
         //[HttpPost]
+        [Route("DeleteDestination/{id}")]
         public IActionResult DeleteDestination(int id)
         {
             var value = _destinationService.TGetByID(id);
@@ -46,6 +51,7 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Route("UpdateDestination/{id}")]
         public IActionResult UpdateDestination(int id)
         {
             var value = _destinationService.TGetByID(id);
@@ -54,6 +60,7 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
 
 
         [HttpPost]
+        [Route("UpdateDestination/{id}")]
         public IActionResult UpdateDestination(Destination destination)
         {
             destination.IsActive = true;
@@ -62,6 +69,7 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
         }
 
         //[HttpGet]
+        [Route("RotaDetail/{id}")]
         public IActionResult RotaDetail(int id)
         {
             ViewBag.DestinationId = id;

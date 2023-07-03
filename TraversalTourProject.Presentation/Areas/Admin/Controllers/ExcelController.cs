@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using TraversalTourProject.BusinessLayer.Abstract;
 using TraversalTourProject.DataAccessLayer.Concrete;
+using TraversalTourProject.DtoLayer.DTOs.DestinationDTO;
 using TraversalTourProject.Presentation.Models;
 
 namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
@@ -28,12 +29,12 @@ namespace TraversalTourProject.Presentation.Areas.Admin.Controllers
 
 
         //Bu List Excel alacağımız listeyi bize modele göre döndüren değerleri verir.
-        public List<DestinationViewModel> DestinationList()
+        public List<DestinationViewDto> DestinationList()
         {
-            List<DestinationViewModel> destinationViewModels = new List<DestinationViewModel>();
+            List<DestinationViewDto> destinationViewModels = new List<DestinationViewDto>();
             using (var c = new Context())
             {
-                destinationViewModels = c.Destinations.Select(x => new DestinationViewModel
+                destinationViewModels = c.Destinations.Select(x => new DestinationViewDto
                 {
                     City = x.City,
                     Capacity = x.Capacity,

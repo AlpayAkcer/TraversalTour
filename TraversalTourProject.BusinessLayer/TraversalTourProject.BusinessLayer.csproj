@@ -21,6 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TraversalTourProject.DataAccessLayer\TraversalTourProject.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\TraversalTourProject.DtoLayer\TraversalTourProject.DtoLayer.csproj" />
     <ProjectReference Include="..\TraversalTourProject.EntityLayer\TraversalTourProject.EntityLayer.csproj" />
   </ItemGroup>
 
