@@ -56,6 +56,18 @@
                                     <a href="#" class="btn btn-sm bg-teal">
                                         <i class="fas fa-comments"></i>
                                     </a>
+                                    @if (item.IsActive == true)
+                                    {
+                                        <a href="/Admin/Guide/ChangeStatus/@item.GuideID" class="btn btn-danger btn-sm bg-outline-danger">
+                                            Pasif Yap
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Admin/Guide/ChangeStatus/@item.GuideID" class="btn btn-success  bg-outline-success">
+                                            Aktif Yap
+                                        </a>
+                                    }
                                     <a href="#" class="btn btn-sm btn-primary">
                                         <i class="fas fa-user"></i> Rehber Detay
                                     </a>
